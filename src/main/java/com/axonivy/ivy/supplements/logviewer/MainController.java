@@ -83,6 +83,14 @@ public class MainController implements Initializable {
 	@FXML
 	private Label filepathLabel;
 
+	@FXML
+	private TextField serverField;
+	
+	@FXML
+	private Button loadButton;
+	
+	private String logServerUrl = "";
+	
 	private final KeyCombination ctrlC = new KeyCodeCombination(KeyCode.C, KeyCombination.CONTROL_DOWN);
 
 	@Override
@@ -90,7 +98,7 @@ public class MainController implements Initializable {
 		buildMenu();
 		configureDragAndDrop();
 		configureMinLogLevelSelection();
-		configureSearch();
+		configureButton();
 		configureSelectionMode();
 		addCtrlCSupport();
 	}
@@ -245,10 +253,14 @@ public class MainController implements Initializable {
 		});
 	}
 
-	private void configureSearch() {
+	private void configureButton() {
 		searchButton.setOnAction(event -> {
 			textToSearch = searchField.getText();
 			displayLogEntries();
+		});
+		loadButton.setOnAction(event -> {
+			logServerUrl = serverField.getText();
+			loadLogUrl(logServerUrl);
 		});
 	}
 
@@ -336,6 +348,17 @@ public class MainController implements Initializable {
 		}
 	}
 
+	private void loadLogUrl(String url) {
+		LogFileParser logFileParser = new LogFileParser(url);
+		try {
+			logEntries = logFileParser.parseURL();
+			displayLogEntries();
+			filepathLabel.setText(url);
+		} catch (Exception ex) {
+			new ExceptionDialog().showException(ex);
+		}
+	}
+	
 	private void openFile(File file) {
 		if (file == null) {
 			return;

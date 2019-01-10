@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" stylesheets="@ivylogviewer.css" xmlns="http://javafx.com/javafx/8.0.151" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.axonivy.ivy.supplements.logviewer.MainController">
+<VBox prefHeight="500.0" prefWidth="650.0" stylesheets="@ivylogviewer.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.axonivy.ivy.supplements.logviewer.MainController">
   <children>
     <MenuBar fx:id="menuBar" VBox.vgrow="NEVER">
       <menus>
@@ -33,14 +33,20 @@
         </Menu>
       </menus>
     </MenuBar>
-    <AnchorPane fx:id="treeAnchorPane" maxHeight="-1.0" maxWidth="-1.0" prefHeight="445.0" prefWidth="640.0" VBox.vgrow="ALWAYS">
+    <AnchorPane fx:id="treeAnchorPane" maxHeight="-1.0" maxWidth="-1.0" prefHeight="450.0" prefWidth="650.0" VBox.vgrow="ALWAYS">
       <children>
-      	<TreeView fx:id="logTreeView" layoutY="44.0" prefHeight="302.0" prefWidth="640.0" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="44.0" />
-            <ComboBox fx:id="minimalLevel" layoutX="108.0" layoutY="10.0" prefWidth="150.0" />
-            <Label layoutX="14.0" layoutY="14.0" text="Show Level:" />
-            <Button fx:id="searchButton" defaultButton="true" layoutX="574.0" layoutY="10.0" mnemonicParsing="false" text="Search" AnchorPane.rightAnchor="14.0" />
-            <TextField fx:id="searchField" layoutX="418.0" layoutY="10.0" prefHeight="25.0" prefWidth="228.0" AnchorPane.rightAnchor="74.0" />
-            <Label fx:id="filepathLabel" layoutX="14.0" layoutY="87.0" prefHeight="17.0" prefWidth="611.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" />
+      	<TreeView fx:id="logTreeView" layoutY="45.0" prefHeight="350.0" prefWidth="650.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0" />
+            <ComboBox fx:id="minimalLevel" layoutX="110.0" layoutY="10.0" prefWidth="150.0" />
+            <Label layoutX="15.0" layoutY="15.0" text="Show Level:" />
+
+            <Button fx:id="searchButton" defaultButton="true" layoutX="575.0" layoutY="10.0" mnemonicParsing="false" text="Search" AnchorPane.rightAnchor="15.0" />
+            <TextField fx:id="searchField" layoutX="420.0" layoutY="10.0" prefHeight="25.0" prefWidth="230.0" AnchorPane.rightAnchor="75.0" />
+
+            <Label layoutX="15.0" layoutY="50.0" text="Server:" />
+            <Button fx:id="loadButton" defaultButton="true" layoutX="570.0" layoutY="45.0" mnemonicParsing="false" text="Load" />
+            <TextField fx:id="serverField" layoutX="110.0" layoutY="45.0" prefHeight="25.0" prefWidth="450.0" />
+
+            <Label fx:id="filepathLabel" layoutX="15.0" layoutY="87.0" prefHeight="17.0" prefWidth="630.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" />
       </children>
     </AnchorPane>
   </children>
